@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <title>Withings Authorization Code</title>
+   </head>
+   <body>
+      <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <p style="color:wheat;font-size:55px;text-align:center;">Your Withings Authorization code</p>
+      <center>
+         <input size="45" type="text" value="Code placeholder" id="myInput">
+         <button onclick="copyToClipboard()">Copy</button>
+         <p>You must copy it back to the script during next 30 seconds, otherwise it will get expired.</p>
+      </center>
+      <script>
+         function getUrlVars() {
+             var vars = {};
+             var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+                 vars[key] = value;
+             });
+             return vars;
+         }
+         
+         function copyToClipboard() {
+           /* Get the text field */
+           var copyText = document.getElementById("myInput");
+         
+           /* Select the text field */
+           copyText.select();
+         
+           /* Copy the text inside the text field */
+           document.execCommand("copy");
+         
+         }
+         
+         document.getElementById("myInput").value = getUrlVars()["code"];
+      </script>
+   </body>
+</html>
